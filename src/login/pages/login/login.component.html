@@ -1,6 +1,6 @@
 <!-- login.component.html -->
 
-<form id="kc-form-login" (submit)="onSubmit()" [action]="kcContext.url.loginAction" method="post">
+<form id="kc-form-login" [action]="kcContext.url.loginAction" method="post">
     <lux-input-ac
       autofocus
       luxLabel="Benutzername"
@@ -23,7 +23,8 @@
           [luxChecked]="kcContext.login.rememberMe === 'on'"
         ></lux-checkbox-ac>
       </div>
-          <lux-button (luxClicked)="kcContext.url.loginResetCredentialsUrl"> Passwort vergessen? </lux-button>
+
+  <lux-button (luxClicked)="kcContext.url.loginResetCredentialsUrl" luxLabel="Passwort vergessen?">  </lux-button>
 
 
   <div id="kc-form-buttons" [class]="getClassName('kcFormGroupClass')">
@@ -43,7 +44,6 @@
       luxLabel="Einloggen"
       style="max-width:100%;"
       [luxDisabled]="kcContext.isLoginButtonDisabled "
-      (luxClicked)=""
       [class]="getClassName('kcButtonClass') + ' ' + getClassName('kcButtonPrimaryClass') + ' ' + getClassName('kcButtonBlockClass') + ' ' + getClassName('kcButtonLargeClass')"></lux-button>
   </div>
 </form>
