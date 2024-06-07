@@ -1,0 +1,50 @@
+<!-- login.component.html -->
+
+<form id="kc-form-login" (submit)="onSubmit()" [action]="kcContext.url.loginAction" method="post">
+    <lux-input-ac
+      autofocus
+      luxLabel="Benutzername"
+      luxAutocomplete="off"
+      luxType="test"
+      luxTagId="username"
+      [class]="getClassName('kcInputClass')"></lux-input-ac>
+
+    <lux-input-ac luxLabel="Passwort"
+                  luxAutocomplete="off"
+                  luxType="password"
+                  luxTagId="password"
+                  [class]="getClassName('kcInputClass')">
+
+    </lux-input-ac>
+
+      <div *ngIf="kcContext.realm.rememberMe && !kcContext.usernameHidden">
+        <lux-checkbox-ac
+          luxLabel="Login merken?"
+          [luxChecked]="kcContext.login.rememberMe === 'on'"
+        ></lux-checkbox-ac>
+      </div>
+          <lux-button (luxClicked)="kcContext.url.loginResetCredentialsUrl"> Passwort vergessen? </lux-button>
+
+
+  <div id="kc-form-buttons" [class]="getClassName('kcFormGroupClass')">
+    <input
+      type="hidden"
+      id="id-hidden-input"
+      name="credentialId"
+      [value]="kcContext.auth?.selectedCredential"
+    />
+
+    <lux-button
+      name="login"
+      id="kc-login"
+      type="submit"
+      luxColor="primary"
+      [luxFlat]="true"
+      luxLabel="Einloggen"
+      style="max-width:100%;"
+      [luxDisabled]="kcContext.isLoginButtonDisabled "
+      (luxClicked)=""
+      [class]="getClassName('kcButtonClass') + ' ' + getClassName('kcButtonPrimaryClass') + ' ' + getClassName('kcButtonBlockClass') + ' ' + getClassName('kcButtonLargeClass')"></lux-button>
+  </div>
+</form>
+

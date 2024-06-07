@@ -1,0 +1,80 @@
+{
+  "name": "keycloakify-lux-components-theme",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --aot --localize && npm run move-de-files && rimraf build/keycloak-resources",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "build-prod": "ng build --configuration production --localize && npm run move-de-files",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless --code-coverage=true",
+    "smoketest": "npm run build-prod && npm run test-headless && npm run xi18n",
+    "move-de-files": "node move-de-files.js",
+    "xi18n": "ng extract-i18n --output-path src/locale",
+    "build-keycloakify-theme": "ng build && npx keycloakify"
+  },
+  "keycloakify": {
+    "themeName": "keycloakify-starter",
+    "extraThemeProperties": [
+      "foo=bar"
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "16.2.12",
+    "@angular/common": "16.2.12",
+    "@angular/compiler": "16.2.12",
+    "@angular/core": "16.2.12",
+    "@angular/forms": "16.2.12",
+    "@angular/platform-browser": "16.2.12",
+    "@angular/platform-browser-dynamic": "16.2.12",
+    "@angular/router": "16.2.12",
+    "rxjs": "7.8.1",
+    "tslib": "2.6.2",
+    "zone.js": "0.13.3",
+    "@ihk-gfi/lux-components": "16.2.0",
+    "@ihk-gfi/lux-components-theme": "16.0.2",
+    "@ihk-gfi/lux-components-icons-and-fonts": "1.8.0",
+    "@angular/localize": "16.2.12",
+    "@angular/cdk": "16.2.14",
+    "@angular/material": "16.2.14",
+    "dompurify": "2.3.7",
+    "marked": "4.0.15",
+    "hammerjs": "2.0.8",
+    "ng2-pdf-viewer": "8.0.1",
+    "pdfjs-dist": "2.13.216",
+    "ngx-cookie-service": "16.0.0",
+    "ngx-build-plus": "16.0.0",
+    "evt": "^2.5.7",
+    "keycloakify": "^9.6.1",
+    "powerhooks": "^1.0.8"
+  },
+  "devDependencies": {
+
+    "@angular-builders/custom-webpack": "^16.0.1",
+    "@angular-devkit/build-angular": "16.2.14",
+    "@angular/cli": "16.2.14",
+    "@angular/compiler-cli": "16.2.12",
+    "@ihk-gfi/lux-components-update": "^16.0.0",
+    "@types/jasmine": "4.3.1",
+    "jasmine-core": "4.6.0",
+    "karma": "6.4.1",
+    "karma-chrome-launcher": "3.2.0",
+    "karma-coverage": "2.2.1",
+    "karma-jasmine": "5.1.0",
+    "karma-jasmine-html-reporter": "2.1.0",
+    "typescript": "5.1.3",
+    "@angular/language-service": "16.2.12",
+    "@angular/elements": "16.2.12",
+    "@types/marked": "4.0.3",
+    "fs-extra": "^10.0.0",
+    "del": "^6.0.0",
+
+    "copy-webpack-plugin": "^12.0.2",
+    "html-loader": "^5.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "rimraf": "^5.0.7",
+    "style-loader": "^4.0.0"
+  }
+}
