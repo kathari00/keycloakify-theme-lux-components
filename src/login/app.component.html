@@ -1,15 +1,17 @@
 <!-- template.component.html -->
-<lux-app-header-ac
-  luxAppTitle="Self Service Portal"
-  luxAppTitleShort="SSP"
->
-</lux-app-header-ac>
 
-<lux-card [luxTitle]="kcContext.realm.displayName"  [luxSubTitle]="pageHeaderText" class="lux-flex lux-flex-auto lux-justify-center" style="width: 40%; margin: auto;">
+<lux-card class="lux-flex lux-flex-auto lux-justify-self-center" style="width: 70%; height: 10%; padding:0%; margin: auto; margin-bottom: 1%;">
+<lux-card-content>
+  <h1>haaaaaaa</h1>
+</lux-card-content>
+</lux-card>
+<lux-card [luxTitle]="kcContext.realm.displayName"  [luxSubTitle]="pageHeaderText" class="lux-flex lux-flex-auto lux-justify-self-center" style="width: 70%; height: 50%; margin: auto;">
+
       <lux-card-content id="kc-content">
           <ng-container [ngSwitch]="kcContext?.pageId">
             <kc-login *ngSwitchCase="'login.ftl'" [kcContext]="kcContext"></kc-login>
             <kc-login *ngSwitchCase="'register.ftl'" [kcContext]="kcContext"></kc-login>
+            <kc-terms *ngSwitchCase="'terms.ftl'" [kcContext]="kcContext"></kc-terms>
           </ng-container>
       </lux-card-content>
 </lux-card>

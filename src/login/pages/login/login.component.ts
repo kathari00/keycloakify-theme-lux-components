@@ -19,7 +19,7 @@ export class LoginComponent implements AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       this.buttons.forEach(button => {
-          button.elementRef.nativeElement.style.width = '100%';
+          button.elementRef.nativeElement.style.width = '500px';
       });
 
     });
