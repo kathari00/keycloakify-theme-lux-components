@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build && rimraf build/keycloak-resources",
-    "watch": "concurrently \"ng build --watch\" \"npx keycloakify\"",
     "test": "ng test",
     "build-prod": "ng build --configuration production --localize && npm run move-de-files",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless --code-coverage=true",

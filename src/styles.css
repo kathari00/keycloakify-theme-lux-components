@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+::ng-deep :root {
+    font-family: 'Blogger Sans' !important;
+  }
+
+  
+  
+  body, body * {
+    font-family: 'Blogger Sans' !important;
+    font-weight: 300 !important;
+  }

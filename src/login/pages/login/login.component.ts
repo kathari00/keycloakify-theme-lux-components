@@ -17,7 +17,6 @@ export class LoginComponent implements AfterViewInit {
 
 
   ngAfterViewInit() {
-
     //die buttons müssen auf eine größe mit den Input Feldern gebracht werden, aber das lässt lux components nicht zu...
     setTimeout(() => {
       this.luxButtons.forEach(button => {
@@ -30,15 +29,5 @@ export class LoginComponent implements AfterViewInit {
       });
 
     });
-  }
-  getClassName(classKey: string): string {
-    console.log("getClassName", classKey, this.classNameService.getClassName(classKey));
-    return this.classNameService.getClassName(classKey);
-  }
-
-
-
-  onSubmit() {
-    console.log("submit")
   }
 }

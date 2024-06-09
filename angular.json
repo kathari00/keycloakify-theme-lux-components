@@ -30,7 +30,6 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
               {
                 "glob": "*(*min.css|*min.css.map)",
                 "input": "./node_modules/@ihk-gfi/lux-components-theme/prebuilt-themes",
@@ -38,8 +37,13 @@
               },
               {
                 "glob": "**/*",
-                "input": "./node_modules/@ihk-gfi/lux-components-icons-and-fonts/assets/icons/",
-                "output": "./fonts"
+                "input": "./node_modules/@ihk-gfi/lux-components-icons-and-fonts/assets/fonts/Blogger Sans/WOFF2",
+                "output": "./static/media/fonts"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/favicon.ico",
+                "output": "./static/media/"
               },
               {
                 "glob": "**/*",

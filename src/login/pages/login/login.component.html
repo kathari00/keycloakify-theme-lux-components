@@ -1,52 +1,50 @@
 <!-- login.component.html -->
-
-
-
 <form id="kc-form-login" [action]="kcContext.url.loginAction" style="margin: 4%;">
+  <lux-input-ac
+    autofocus
+    luxLabel="E-Mail"
+    luxAutocomplete="off"
+    luxTagId="username">
+  </lux-input-ac>
+
+  <lux-input-ac 
+    luxLabel="Passwort"
+    luxAutocomplete="off"
+    luxType="password"
+    luxTagId="password">
+  </lux-input-ac>
+
+  <div class="lux-flex lux-flex-col lux-items-center lux-justify-center">
+    <input
+      type="hidden"
+      id="id-hidden-input"
+      name="credentialId"
+      [value]="kcContext.auth?.selectedCredential"
+    />
+      
+    <lux-button
+      class="login-button"
+      name="login"
+      type="submit"
+      luxColor="accent"
+      [luxFlat]="true"
+      luxLabel="Weiter"
+      [luxDisabled]="kcContext.isLoginButtonDisabled ">
+    </lux-button>
+      
+    <lux-link-plain  
+      class="password-reset-link"
+      [luxHref]="kcContext.url.loginResetCredentialsUrl" 
+      luxLabel="Passwort vergessen?">
+    </lux-link-plain>
   
-    <lux-input-ac
-      autofocus
-      luxLabel="E-Mail"
-      luxAutocomplete="off"
-      luxTagId="username"
-      [class]="getClassName('kcInputClass')"></lux-input-ac>
-
-    <lux-input-ac luxLabel="Passwort"
-                  luxAutocomplete="off"
-                  luxType="password"
-                  luxTagId="password"
-                  [class]="getClassName('kcInputClass')">
-
-    </lux-input-ac>
-
-      <div *ngIf="kcContext.realm.rememberMe && !kcContext.usernameHidden">
-        <lux-checkbox-ac
-          luxLabel="Login merken?"
-          [luxChecked]="kcContext.login.rememberMe === 'on'"
-        ></lux-checkbox-ac>
-      </div>
-
-      <div class="lux-flex lux-flex-col lux-items-center lux-justify-center">
-          <input
-            type="hidden"
-            id="id-hidden-input"
-            name="credentialId"
-            [value]="kcContext.auth?.selectedCredential"
-          />
-      
-          <lux-button
-            name="login"
-            type="submit"
-            luxColor="accent"
-            [luxFlat]="true"
-            luxLabel="Weiter"
-            style="margin-bottom: 5%;"
-            [luxDisabled]="kcContext.isLoginButtonDisabled "></lux-button>
-      
-            
-        
-          <lux-button luxColor="primary" (luxClicked)="kcContext.url.loginResetCredentialsUrl" luxLabel="Passwort vergessen?">  </lux-button>
-          <lux-link luxColor="primary" luxLabel="Impressum" luxHref="https://www.ihk-gfi.de/impressum-5343024"></lux-link>
-          <lux-link luxColor="primary" luxLabel="Datenschutzerklärung" luxHref="https://www.ihk-gfi.de/datenschutz-lux-bs-5518234"></lux-link>
-        </div>
+    <p class="account-question">Sie haben noch kein Konto?</p>
+    <p class="registration-instruction">
+      <lux-link-plain 
+        [luxHref]="kcContext.url.registrationUrl" 
+        luxLabel="Registrieren">
+      </lux-link-plain> 
+      Sie sich und setzen Sie sich mit Ihrer IHK in Verbindung.
+    </p>
+  </div>
 </form>
