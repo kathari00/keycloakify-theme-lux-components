@@ -31,7 +31,6 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
               {
                 "glob": "*(*min.css|*min.css.map)",
                 "input": "./node_modules/@ihk-gfi/lux-components-theme/prebuilt-themes",
@@ -40,17 +39,12 @@
               {
                 "glob": "**/*",
                 "input": "./node_modules/@ihk-gfi/lux-components-icons-and-fonts/assets/icons/",
-                "output": "./static/media/icons"
+                "output": "./fonts"
               },
               {
                 "glob": "**/*",
-                "input": "src/login/assets",
+                "input": "./src/assets",
                 "output": "./static/media"
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets/fonts",
-                "output": "./fonts/"
               }
             ],
             "styles": [

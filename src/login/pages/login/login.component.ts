@@ -10,7 +10,7 @@ import {LuxButtonComponent} from "@ihk-gfi/lux-components";
 export class LoginComponent implements AfterViewInit {
   @Input() kcContext: any;
   @ViewChildren(LuxButtonComponent)
-  public buttons: QueryList<LuxButtonComponent>;
+  public luxButtons: QueryList<LuxButtonComponent>;
 
   constructor(private classNameService: ClassNameService) {
   }
@@ -18,8 +18,13 @@ export class LoginComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.buttons.forEach(button => {
-          button.elementRef.nativeElement.style.width = '500px';
+
+      this.luxButtons.forEach(button => {
+        const buttonLabel = button.elementRef.nativeElement.querySelector('.mat-flat-button');
+        console.log("buttonLabel", buttonLabel);
+        buttonLabel.style.width = '1999px;';
+        buttonLabel.style.display = 'flex';
+        buttonLabel.style.justifyContent = 'center';
       });
 
     });

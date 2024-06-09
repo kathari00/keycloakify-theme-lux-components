@@ -4,15 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm run build && rimraf build/keycloak-resources",
-    "watch": "ng build --watch && npx keycloakify",
+    "build": "ng build && rimraf build/keycloak-resources",
+    "watch": "concurrently \"ng build --watch\" \"npx keycloakify\"",
     "test": "ng test",
     "build-prod": "ng build --configuration production --localize && npm run move-de-files",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless --code-coverage=true",
     "smoketest": "npm run build-prod && npm run test-headless && npm run xi18n",
     "move-de-files": "node move-de-files.js",
     "xi18n": "ng extract-i18n --output-path src/locale",
-    "build-keycloakify-theme": "npm run ng build"
+    "build-keycloakify-theme": "npm run build && npx keycloakify"
   },
   "keycloakify": {
     "themeName": "keycloakify-starter",

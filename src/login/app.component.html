@@ -1,11 +1,22 @@
 <!-- template.component.html -->
 
-<lux-card class="lux-flex lux-flex-auto lux-justify-self-center" style="width: 70%; height: 10%; padding:0%; margin: auto; margin-bottom: 1%;">
-<lux-card-content>
-  <h1>haaaaaaa</h1>
-</lux-card-content>
-</lux-card>
-<lux-card [luxTitle]="kcContext.realm.displayName"  [luxSubTitle]="pageHeaderText" class="lux-flex lux-flex-auto lux-justify-self-center" style="width: 70%; height: 50%; margin: auto;">
+<div class="lux-flex lux-flex-col lux-items-center lux-justify-center" style="height: 100%; background-color: var(--lux-theme-primary-50); font-family: 'Source Sans Pro';">
+  <div class="kc-header lux-grid lux-grid-cols-12 lux-auto-cols-max" style="max-height: 5%; margin-bottom: 1%;">
+
+    <div class="col-span-2">
+      <img src="{{PUBLIC_URL}}/static/media/ihk.png" width="auto" height="50px" alt="Beschreibung des Bildes">
+    </div>
+      
+    <div class="col-span-8">
+      <h1>Bei Ihrem Konto anmelden</h1>
+    </div>
+
+    <div class="col-span-2">
+      <!-- Leere rechte Spalte -->
+    </div>
+  </div>
+
+<lux-card luxTitle="LUX BS 2.0 - Self Service Portal"  [luxSubTitle]="pageHeaderText" style="width: 60%;">
 
       <lux-card-content id="kc-content">
           <ng-container [ngSwitch]="kcContext?.pageId">
@@ -15,3 +26,4 @@
           </ng-container>
       </lux-card-content>
 </lux-card>
+</div>

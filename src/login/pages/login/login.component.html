@@ -1,6 +1,8 @@
 <!-- login.component.html -->
 
-<form id="kc-form-login" [action]="kcContext.url.loginAction" method="post" style="margin: 4%;">
+
+
+<form id="kc-form-login" [action]="kcContext.url.loginAction" style="margin: 4%;">
     <lux-input-ac
       autofocus
       luxLabel="E-Mail"
@@ -23,28 +25,24 @@
         ></lux-checkbox-ac>
       </div>
 
-
-
-  <div id="kc-form-buttons" [class]="getClassName('kcFormGroupClass')">
-    <input
-      type="hidden"
-      id="id-hidden-input"
-      name="credentialId"
-      [value]="kcContext.auth?.selectedCredential"
-    />
-
-    <lux-button
-      name="login"
-      id="kc-login"
-      type="submit"
-      luxColor="primary"
-      [luxFlat]="true"
-      luxLabel="Einloggen"
-      [luxDisabled]="kcContext.isLoginButtonDisabled "
-      [class]="getClassName('kcButtonClass') + ' ' + getClassName('kcButtonPrimaryClass') + ' ' + getClassName('kcButtonBlockClass') + ' ' + getClassName('kcButtonLargeClass')"></lux-button>
-
+        <div class="lux-flex lux-flex-col lux-items-center lux-justify-center">
+          <input
+            type="hidden"
+            id="id-hidden-input"
+            name="credentialId"
+            [value]="kcContext.auth?.selectedCredential"
+          />
       
-  <lux-button (luxClicked)="kcContext.url.loginResetCredentialsUrl" luxLabel="Passwort vergessen?" [luxFlat]="true">  </lux-button>
-  </div>
+          <lux-button
+            name="login"
+            id="kc-login"
+            type="submit"
+            luxColor="accent"
+            [luxFlat]="true"
+            luxLabel="Weiter"
+            [luxDisabled]="kcContext.isLoginButtonDisabled "></lux-button>
+      
+            
+          <lux-button (luxClicked)="kcContext.url.loginResetCredentialsUrl" luxLabel="Passwort vergessen?" [luxFlat]="true">  </lux-button>
+        </div>
 </form>
-
