@@ -19,7 +19,7 @@
 <lux-card luxTitle="LUX BS 2.0 - Self Service Portal"  style="width: 60%;">
 
       <lux-card-content id="kc-content">
-        <p style="color: var(--lux-theme-light-disabled-text)"> Falls Sie sich seit August 2022 erstmalig wieder anmelden, beachten Sie folgende <a href="https://example.com">Informationen</a>. </p>
+        <p style="color: var(--lux-theme-component-bg-gray)"> Falls Sie sich seit August 2022 erstmalig wieder anmelden, beachten Sie folgende <a href="https://example.com">Informationen</a>. </p>
           <ng-container [ngSwitch]="kcContext?.pageId">
             <kc-login *ngSwitchCase="'login.ftl'" [kcContext]="kcContext"></kc-login>
             <kc-login *ngSwitchCase="'register.ftl'" [kcContext]="kcContext"></kc-login>
