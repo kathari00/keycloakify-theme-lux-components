@@ -12,19 +12,21 @@ export class LoginComponent implements AfterViewInit {
   @ViewChildren(LuxButtonComponent)
   public luxButtons: QueryList<LuxButtonComponent>;
 
-  constructor(private classNameService: ClassNameService) {
+  constructor(private classNameService: ClassNameService, ) {
   }
 
 
   ngAfterViewInit() {
-    setTimeout(() => {
 
+    //die buttons müssen auf eine größe mit den Input Feldern gebracht werden, aber das lässt lux components nicht zu...
+    setTimeout(() => {
       this.luxButtons.forEach(button => {
-        const buttonLabel = button.elementRef.nativeElement.querySelector('.mat-flat-button');
-        console.log("buttonLabel", buttonLabel);
-        buttonLabel.style.width = '1999px;';
+        const buttonLabel = button.elementRef.nativeElement.querySelector('.lux-button-label');
+        const parentDiv = button.elementRef.nativeElement.parentElement;
+        buttonLabel.style.width = `${parentDiv.offsetWidth-32}px`;
         buttonLabel.style.display = 'flex';
         buttonLabel.style.justifyContent = 'center';
+     
       });
 
     });

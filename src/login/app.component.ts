@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   protected readonly kcContext =  kcContext;
   protected readonly PUBLIC_URL = PUBLIC_URL;
-  protected pageHeaderText = "Falls Sie sich seit August 2022 erstmalig wieder anmelden, beachten Sie folgende Informationen.";
+  protected pageHeaderText = '';
   constructor(private dynamicStyleLoader: DynamicStyleLoaderService, public router: Router, themeService: LuxThemeService,  private classNameService: ClassNameService) {
   }
   ngOnInit() {
