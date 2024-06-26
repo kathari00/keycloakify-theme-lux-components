@@ -1,19 +1,34 @@
-import {AfterViewInit, Component, Input, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-
+import {AfterViewInit, Component, Input,  QueryList, ViewChildren} from '@angular/core';
+import {    
+  LuxIconModule,
+  LuxLayoutModule,
+  LuxActionModule,
+  LuxFormModule,
+  LuxCommonModule,
+  LuxPipesModule,
+  LuxPopupsModule,
+  LuxErrorModule,
+  LuxMarkdownModule, } from '@ihk-gfi/lux-components';
 import {LuxButtonComponent} from "@ihk-gfi/lux-components";
+
 
 @Component({
   selector: 'kc-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  standalone: true,
+  providers: [],
+  imports: [LuxIconModule, LuxLayoutModule, LuxActionModule, LuxFormModule, LuxCommonModule, LuxPipesModule, LuxPopupsModule, LuxErrorModule, LuxMarkdownModule]
 })
 export class LoginComponent implements AfterViewInit {
-  @Input() kcContext: any;
+  
+  kcContext?: any;
 
   @ViewChildren(LuxButtonComponent)
   public luxButtons?: QueryList<LuxButtonComponent>;
 
   constructor() {
+    this.kcContext = window.kcContext;
   }
 
 
@@ -32,3 +47,6 @@ export class LoginComponent implements AfterViewInit {
     });
   }
 }
+
+
+

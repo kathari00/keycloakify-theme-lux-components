@@ -1,4 +1,6 @@
 <!-- login.component.html -->
+
+
 <form id="kc-form-login" [action]="kcContext.url.loginAction" style="margin: 4%;">
   <lux-input-ac
     autofocus
@@ -40,10 +42,11 @@
   
     <p class="account-question">Sie haben noch kein Konto?</p>
     <p class="registration-instruction">
-      <lux-link-plain 
-        [luxHref]="kcContext.url.registrationUrl" 
+      <a
+        [href]="kcContext.url.registrationUrl" 
         luxLabel="Registrieren">
-      </lux-link-plain> 
+        Registrieren
+    </a> 
       Sie sich und setzen Sie sich mit Ihrer IHK in Verbindung.
     </p>
   </div>

@@ -4,14 +4,15 @@
 import '@angular/localize/init';
 
 import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './login/app.module';
 import { environment } from './environments/environment';
 import 'zone.js';
+import { TemplateComponent } from './login/template/template.component';
+import { LoginConfig } from './login/login.config';
+import { bootstrapApplication } from '@angular/platform-browser';
+
 if (environment.production) {
   enableProdMode();
 }
+bootstrapApplication(TemplateComponent, LoginConfig)
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.log(err));
+  .catch(err => console.error(err));

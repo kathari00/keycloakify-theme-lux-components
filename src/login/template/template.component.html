@@ -1,0 +1,47 @@
+<div class="lux-flex lux-flex-col lux-items-center lux-justify-center" style="height: 100%; background-color: var(--lux-theme-primary-50);">
+<!-- header -->
+<div class="kc-header lux-grid lux-grid-cols-12 lux-auto-cols-max" style="height: 6em; margin-bottom: 0.5em;">
+
+  <div class="lux-col-span-2 lux-flex lux-items-center">
+    <img src="{{publicPath}}/static/media/ihk.png" style="margin-left: 5px" width="auto" height="50px" alt="Beschreibung des Bildes">
+  </div>
+    
+  <div class="lux-col-span-8 lux-flex lux-items-center lux-justify-center">
+    {{kcContext?.realm?.displayName}}
+  </div>
+
+  <div class="lux-col-span-2">
+    <!-- Internationalisierung -->
+  </div>
+</div>
+
+  <!-- content -->
+<lux-card luxTitle="LUX BS 2.0 - Self Service Portal" style="width: 50%;">
+
+      <lux-card-content id="kc-content">
+        <!-- conditionals
+        -realm.internationalizationEnabled && (assert(locale !== undefined), true) && locale.supported.length > 1 
+        -auth !== undefined && auth.showUsername && !auth.showResetCredentials) ? ( displayRequiredFields
+        -displayRequiredFields
+        -->
+
+
+        <!-- Fehlermeldungen von validierung -->
+        <p style="color: var(--lux-theme-component-bg-gray);  margin: 0%;"> Falls Sie sich seit August 2022 erstmalig wieder anmelden, beachten Sie folgende <lux-link-plain luxLabel="Informationen" href="https://example.com"></lux-link-plain>.</p>
+        
+          <router-outlet></router-outlet>
+          
+          
+      </lux-card-content>
+
+      
+      <!-- showTryAnotherWayMfa-->
+      <!-- infonode-->
+      <!-- footer -->
+      <div class="lux-flex lux-flex-col lux-items-center lux-justify-center">
+        <lux-link-plain luxLabel="Impressum" luxHref="https://www.ihk-gfi.de/impressum-5343024"></lux-link-plain>
+        <lux-link-plain luxLabel="Datenschutzerklärung" luxHref="https://www.ihk-gfi.de/datenschutz-lux-bs-5518234"></lux-link-plain>
+      </div>
+
+</lux-card>
+</div>
