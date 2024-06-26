@@ -2,7 +2,7 @@
   <div class="kc-header lux-grid lux-grid-cols-12 lux-auto-cols-max" style="height: 6em; margin-bottom: 0.5em;">
 
     <div class="lux-col-span-2 lux-flex lux-items-center">
-      <img src="{{PUBLIC_URL}}/static/media/ihk.png" style="margin-left: 5px" width="auto" height="50px" alt="Beschreibung des Bildes">
+      <img src="{{publicPath}}/static/media/ihk.png" style="margin-left: 5px" width="auto" height="50px" alt="Beschreibung des Bildes">
     </div>
       
     <div class="lux-col-span-8 lux-flex lux-items-center lux-justify-center">
@@ -19,10 +19,10 @@
       <lux-card-content id="kc-content">
         
         <p style="color: var(--lux-theme-component-bg-gray);  margin: 0%;"> Falls Sie sich seit August 2022 erstmalig wieder anmelden, beachten Sie folgende <lux-link-plain luxLabel="Informationen" href="https://example.com"></lux-link-plain>.</p>
+        
           <ng-container [ngSwitch]="kcContext?.pageId">
             <kc-login *ngSwitchCase="'login.ftl'" [kcContext]="kcContext"></kc-login>
             <kc-login *ngSwitchCase="'register.ftl'" [kcContext]="kcContext"></kc-login>
-            <kc-terms *ngSwitchCase="'terms.ftl'" [kcContext]="kcContext"></kc-terms>
           </ng-container>
           
           <div class="lux-flex lux-flex-col lux-items-center lux-justify-center">

@@ -23,21 +23,18 @@ import { environment } from '../environments/environment';
 
 
 import { LoginComponent } from "./pages/login/login.component";
-import {AppComponent} from "./app.component";
+import {AppComponent} from "./template.component";
 import { RegisterComponent } from './pages/register/register.component';
+import { KcClassPipe } from "../pipes/classname-pipe";
 
-registerLocaleData(localeDE, localeDeExtra);
-
-const luxComponentsConfig: LuxComponentsConfigParameters = {
-  generateLuxTagIds: environment.generateLuxTagIds,
-  viewConfiguration: {
-    centeredView: true,
-    centeredWidth: '1024px'
-  },
-};
+import { LOCALE_ID } from '@angular/core';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, KcClassPipe],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'de' }
+  ],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -52,9 +49,7 @@ const luxComponentsConfig: LuxComponentsConfigParameters = {
     LuxPopupsModule,
     LuxErrorModule,
     LuxMarkdownModule,
-    LuxComponentsConfigModule.forRoot(luxComponentsConfig)
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    LuxComponentsConfigModule
+  ]
 })
 export class AppModule {}
