@@ -1,15 +1,21 @@
 
+
 .kc-header {
-  width: 50%;    
+  width: 50%;
   background-color: var(--lux-theme-primary-500);
   border-radius: 4px;
 }
 
+.lux-container-additional {
+  height: 100%;
+  background-color: var(--lux-theme-primary-50);
+}
 
-.kc-header h1 {
-  margin: 0;
-  font-weight: 300;
-  font-size: 1.5em;
+.lux-header-additional {
+  height: 6em;
+}
+
+.lux-h1 {
   color: white;
 }
 
@@ -18,10 +24,8 @@
   margin: 0;
 }
 
-.link-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2%;
+.icon {
+  margin-left: 5px;
+  width: auto;
+  height: "50px";
 }

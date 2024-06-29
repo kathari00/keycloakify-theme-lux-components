@@ -14,13 +14,13 @@ import {LuxButtonComponent} from "@ihk-gfi/lux-components";
 
 @Component({
   selector: 'kc-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  templateUrl: './login-password.component.html',
+  styleUrls: ['./login-password.component.scss'],
   standalone: true,
   providers: [],
   imports: [LuxIconModule, LuxLayoutModule, LuxActionModule, LuxFormModule, LuxCommonModule, LuxPipesModule, LuxPopupsModule, LuxErrorModule, LuxMarkdownModule]
 })
-export class LoginComponent implements AfterViewInit {
+export class LoginPasswordComponent implements AfterViewInit {
   
   kcContext?: any;
 
@@ -29,8 +29,7 @@ export class LoginComponent implements AfterViewInit {
 
   constructor() {
     this.kcContext = window.kcContext;
-  }
-
+  }  
 
   ngAfterViewInit() {
     //die buttons müssen auf eine größe mit den Input Feldern gebracht werden, aber das lässt lux components nicht zu...
@@ -41,7 +40,7 @@ export class LoginComponent implements AfterViewInit {
         buttonLabel.style.width = `${parentDiv.offsetWidth-32}px`;
         buttonLabel.style.display = 'flex';
         buttonLabel.style.justifyContent = 'center';
-     
+    
       });
 
     });

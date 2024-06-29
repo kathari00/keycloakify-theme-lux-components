@@ -5,11 +5,6 @@
   "projects": {
     "keycloakifyLuxComponentsTheme": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "kc",
@@ -38,11 +33,6 @@
                 "glob": "*(*min.css|*min.css.map)",
                 "input": "./node_modules/@ihk-gfi/lux-components-theme/prebuilt-themes",
                 "output": "./static/media"
-              },
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@ihk-gfi/lux-components-icons-and-fonts/assets/fonts/Blogger Sans/WOFF2",
-                "output": "./static/media/fonts"
               },
               {
                 "glob": "**/*",

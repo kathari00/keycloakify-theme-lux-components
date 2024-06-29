@@ -2,12 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import { PUBLIC_URL} from "keycloakify/PUBLIC_URL";
 import { KcContext } from '../kcContext'
 import { Router, RouterOutlet } from '@angular/router';
-import { LuxActionModule, LuxCommonModule, LuxLayoutModule } from '@ihk-gfi/lux-components';
+import { ILuxMessage, ILuxMessageChangeEvent, LuxActionModule, LuxCommonModule, LuxLayoutModule } from '@ihk-gfi/lux-components';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'kc-template',
   standalone: true,
-  imports: [LuxCommonModule, LuxLayoutModule, LuxActionModule, RouterOutlet],
+  imports: [CommonModule, LuxCommonModule, LuxLayoutModule, LuxActionModule, RouterOutlet],
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.scss'],
 })
@@ -35,14 +36,8 @@ export class TemplateComponent implements OnInit {
     return pageId;
   }
 
-  loadStyle(url: string) {
-    const head = document.getElementsByTagName('head')[0];
-    let style: HTMLLinkElement = document.createElement('link');
-    style.href = url;
-    style.type = 'text/css';
-    style.rel = 'stylesheet';
-
-    head.appendChild(style);
+  logChanged($event: ILuxMessageChangeEvent) {
+    console.log('[Output-Event] Message wurde geändert: ', $event);
   }
 
   get publicPath() {
