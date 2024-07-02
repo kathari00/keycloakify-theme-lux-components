@@ -18,7 +18,6 @@ export class TemplateComponent implements OnInit {
  
   constructor(private router: Router) {
     this.kcContext = window.kcContext;
-    console.log('kcContext: ', this.kcContext);
   }
 
   ngOnInit() {
@@ -34,10 +33,6 @@ export class TemplateComponent implements OnInit {
       return pageId.substring(0, pageId.length - 4);
     }
     return pageId;
-  }
-
-  logChanged($event: ILuxMessageChangeEvent) {
-    console.log('[Output-Event] Message wurde geändert: ', $event);
   }
 
   get publicPath() {
