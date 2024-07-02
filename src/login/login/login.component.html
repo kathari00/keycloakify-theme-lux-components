@@ -1,12 +1,12 @@
-<form id="kc-form-login" ngNoForm #form [action]="kcContext.url.loginAction" style="margin: 4%;">
-  <lux-input-ac autofocus luxType="text" luxLabel="E-Mail" luxAutocomplete="off" luxName="username"/>
+<form id="kc-form-login" [formGroup]="myGroup" style="margin: 4%;">
+  <lux-input-ac autofocus luxType="text" luxLabel="E-Mail" luxAutocomplete="off" luxName="username"></lux-input-ac>
   <lux-input-ac luxLabel="Passwort" luxAutocomplete="off" luxType="password" luxName="password" luxTagId="password">
   </lux-input-ac>
 
   <div class="lux-flex lux-flex-col lux-items-center lux-justify-center">
-    <lux-input-ac hidden luxTagId="id-hidden-input" luxName="credentialId" />
-    <lux-checkbox-ac luxLabel="Remember me" name="rememberMe"></lux-checkbox-ac>
-    <lux-button luxName="login" luxType="submit" (click)="form.submit()" luxColor="accent" [luxFlat]="true" luxLabel="Weiter"
+    <lux-input-ac hidden luxTagId="id-hidden-input" luxName="credentialId" luxControlBinding="credentialId" (luxValue)="kcContext.auth.credentialId"></lux-input-ac>
+    <lux-checkbox-ac luxLabel="Remember me" luxName="rememberMe"></lux-checkbox-ac>
+    <lux-button luxName="login" luxType="submit" (luxClicked)="login()" luxColor="accent" [luxFlat]="true" luxLabel="Weiter"
       [luxDisabled]="kcContext.isLoginButtonDisabled">
     </lux-button>
 
@@ -15,7 +15,6 @@
       <a [href]="kcContext.url.registrationUrl" luxLabel="Registrieren">
         Registrieren
       </a>
-
       Sie sich und setzen Sie sich mit Ihrer IHK in Verbindung.
     </p>
   </div>

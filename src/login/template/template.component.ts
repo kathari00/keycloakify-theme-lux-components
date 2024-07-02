@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { PUBLIC_URL} from "keycloakify/PUBLIC_URL";
 import { KcContext } from '../kcContext'
 import { Router, RouterOutlet } from '@angular/router';
-import { ILuxMessage, ILuxMessageChangeEvent, LuxActionModule, LuxCommonModule, LuxLayoutModule } from '@ihk-gfi/lux-components';
+import { LuxActionModule, LuxCommonModule, LuxLayoutModule } from '@ihk-gfi/lux-components';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'kc-template',
@@ -23,7 +24,7 @@ export class TemplateComponent implements OnInit {
   ngOnInit() {
     if(this.kcContext) {
     let pageId = this.kcContext.pageId;
-    console.log('pageId: ' + pageId);
+    console.log('kcContext: ', this.kcContext);
     this.router.navigate([this.trimPageIdSuffix(pageId)], {skipLocationChange: true});
     }
   }
