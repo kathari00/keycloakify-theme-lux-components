@@ -11,7 +11,12 @@ export class KcClassPipe implements PipeTransform {
   constructor() {
     const params = {
       doUseDefaultCss: false,
-      classes: {},
+      classes: {
+        "kcLoginClass": "lux-container-additional lux-flex lux-flex-col lux-items-center lux-justify-center",
+        "kcHeaderClass": "kc-header lux-grid lux-grid-cols-12 lux-auto-cols-max lux-header-additional",
+        "kcHeaderImageClass": "lux-col-span-2 lux-flex lux-items-center",
+        "kcHeaderWrapperClass": "lux-col-span-8 lux-flex lux-items-center lux-justify-center"
+       },
     };
     this.kcClsx = getKcClsx(params).kcClsx;
   }

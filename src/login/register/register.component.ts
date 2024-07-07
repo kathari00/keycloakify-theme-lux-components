@@ -19,9 +19,9 @@ import {
 import { LuxButtonComponent } from "@ihk-gfi/lux-components";
 
 @Component({
-  selector: 'kc-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'kc-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
   standalone: true,
   providers: [LuxSnackbarService],
   imports: [
@@ -40,7 +40,7 @@ import { LuxButtonComponent } from "@ihk-gfi/lux-components";
     LuxMarkdownModule
   ]
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   myGroup!: FormGroup;
   kcContex?: any;
   

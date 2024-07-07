@@ -1,14 +1,14 @@
-<div class="lux-flex lux-flex-col lux-items-center lux-justify-center lux-container-additional">
+<div [class]="('kcLoginClass' | kcClass)">
 
   <!-- header -->
-  <div *ngIf="kcContext" class="kc-header lux-grid lux-grid-cols-12 lux-auto-cols-max lux-header-additional">
+  <div [class]="('kcHeaderClass' | kcClass)">
 
-    <div class="lux-col-span-2 lux-flex lux-items-center">
+    <div [class]="('kcHeaderImageClass' | kcClass)">
       <img src="{{publicPath}}/static/media/ihk.png" class="icon" alt="IHK Logo">
     </div>
 
-    <div class="lux-col-span-8 lux-flex lux-items-center lux-justify-center">
-      <h1 class="lux-h1">{{kcContext.realm.displayName}}</h1>
+    <div [class]="('kcHeaderWrapperClass' | kcClass)">
+      <div class="lux-h1" [innerHTML]="kcContext.realm.displayNameHtml! | sanitizeHtml"></div>
     </div>
 
     <div class="lux-col-span-2">
