@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
   
   @ViewChildren(LuxButtonComponent)
   public luxButtons?: QueryList<LuxButtonComponent>;
-  responseHtml?: SafeHtml;
+  responseHtml?: any;
 
   constructor(private http: HttpClient, private router: Router, private sanitizer: DomSanitizer, private renderer: Renderer2) {
     this.kcContex = window.kcContext;
@@ -86,10 +86,6 @@ export class LoginComponent implements OnInit {
         response => {
           this.responseHtml = response;
           console.log("kcContext after set innerhtml", window.kcContext);
-          this.executeScriptsFromResponse(response);  
-          console.log("kcContext after script extraction", window.kcContext);
-          window.location.reload();
-          console.log("kcContext after redirect", window.kcContext);
         },
         error => {
           console.error('Error loading HTML:', error);

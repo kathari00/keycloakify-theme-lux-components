@@ -15,7 +15,7 @@ export class KcClassPipe implements PipeTransform {
         "kcLoginClass": "lux-container-additional lux-grid lux-grid-cols-2 lux-items-center lux-justify-center",
         "kcHeaderClass": "kc-header lux-grid lux-grid-cols-12 lux-auto-cols-max lux-header-additional",
         "kcHeaderImageClass": "lux-col-span-2 lux-flex lux-items-center",
-        "kcHeaderWrapperClass": "lux-col-span-8 lux-flex lux-items-center lux-justify-center"
+        "kcHeaderWrapperClass": "lux-col-span-8 lux-flex lux-items-center lux-justify-center lux-h1"
        },
     };
     this.kcClsx = getKcClsx(params).kcClsx;

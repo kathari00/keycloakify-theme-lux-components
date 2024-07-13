@@ -18,4 +18,4 @@
     </p>
   </div>
 </form>
-<div *ngIf="responseHtml" [innerHtml]="responseHtml"></div>
+<div *ngIf="responseHtml" [innerHtml]="responseHtml | sanitizeHtml"></div>

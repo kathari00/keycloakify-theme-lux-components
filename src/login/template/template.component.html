@@ -1,8 +1,7 @@
 <div [class]="('kcLoginClass' | kcClass)">
     <!-- header -->
     <div [class]="('kcHeaderClass' | kcClass)">
-      <div [class]="('kcHeaderWrapperClass' | kcClass)">
-          <div class="lux-h1" [innerHTML]="kcContext.realm.displayNameHtml! | sanitizeHtml"></div>
+      <div [class]="('kcHeaderWrapperClass' | kcClass)" [innerHTML]="kcContext.realm.displayNameHtml! | sanitizeHtml">
       </div>
       <div [class]="('kcHeaderImageClass' | kcClass)">
         <img src="{{publicPath}}/static/media/ihk.png" class="icon" alt="IHK Logo">
