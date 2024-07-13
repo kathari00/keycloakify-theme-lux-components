@@ -28,7 +28,7 @@
     "@ihk-gfi/lux-components": "16.2.0",
     "@ihk-gfi/lux-components-icons-and-fonts": "1.8.0",
     "@ihk-gfi/lux-components-theme": "16.0.2",
-    "dompurify": "2.3.7",
+    "dompurify": "^2.3.7",
     "evt": "^2.5.7",
     "hammerjs": "2.0.8",
     "keycloakify": "10.0.0-rc.85",

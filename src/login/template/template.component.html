@@ -1,47 +1,23 @@
 <div [class]="('kcLoginClass' | kcClass)">
-
-  <!-- header -->
-  <div [class]="('kcHeaderClass' | kcClass)">
-
-    <div [class]="('kcHeaderImageClass' | kcClass)">
-      <img src="{{publicPath}}/static/media/ihk.png" class="icon" alt="IHK Logo">
+    <!-- header -->
+    <div [class]="('kcHeaderClass' | kcClass)">
+      <div [class]="('kcHeaderWrapperClass' | kcClass)">
+          <div class="lux-h1" [innerHTML]="kcContext.realm.displayNameHtml! | sanitizeHtml"></div>
+      </div>
+      <div [class]="('kcHeaderImageClass' | kcClass)">
+        <img src="{{publicPath}}/static/media/ihk.png" class="icon" alt="IHK Logo">
+      </div>
     </div>
+    <!-- content -->
+    <lux-card class="content-card" luxTitle="LUX BS 2.0 - Self Service Portal">
+      <lux-card-content id="kc-content">
+        <router-outlet></router-outlet>
+      </lux-card-content>
 
-    <div [class]="('kcHeaderWrapperClass' | kcClass)">
-      <div class="lux-h1" [innerHTML]="kcContext.realm.displayNameHtml! | sanitizeHtml"></div>
-    </div>
-
-    <div class="lux-col-span-2">
-      <!-- Internationalisierung -->
-    </div>
-  </div>
-
-  <!-- content -->
-  <lux-card luxTitle="LUX BS 2.0 - Self Service Portal" style="width: 50%;">
-
-    <lux-card-content id="kc-content">
-
-      <!-- Fehlermeldungen -->
-
-      <p style="color: var(--lux-theme-component-bg-gray);  margin: 0%;"> Falls Sie sich seit August 2022 erstmalig
-        wieder anmelden, beachten Sie folgende <lux-link-plain luxLabel="Informationen"
-          href="https://example.com"></lux-link-plain>.</p>
-
-      <router-outlet></router-outlet>
-      <!-- hier wird der router outlet des Login themes geladen, https://github.com/kathari00/keycloakify-starter-angular
-                                                ist eine Version mit 2 Router outlets, damit zwischen verschiedenen Themetypes (login, account, etc unterschieden werden kann. ) -->
-    </lux-card-content>
-
-
-    <!-- showTryAnotherWayMfa-->
-
-    <!-- infonode-->
-
-    <!-- footer -->
-    <lux-link-plain luxLabel="Impressum" luxHref="https://www.ihk-gfi.de/impressum-5343024"></lux-link-plain> |
-    <lux-link-plain luxLabel="Datenschutzerklärung"
-      luxHref="https://www.ihk-gfi.de/datenschutz-lux-bs-5518234"></lux-link-plain>
-  </lux-card>
-
-
+      <!-- footer -->
+      <div class="footer-links">
+        <lux-link-plain luxLabel="Impressum" luxHref="https://www.ihk-gfi.de/impressum-5343024"></lux-link-plain> |
+        <lux-link-plain luxLabel="Datenschutzerklärung" luxHref="https://www.ihk-gfi.de/datenschutz-lux-bs-5518234"></lux-link-plain>
+      </div>
+    </lux-card>
 </div>
