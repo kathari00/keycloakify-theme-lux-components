@@ -84,7 +84,12 @@ export class LoginComponent implements OnInit {
 
       this.http.post(loginUrl, urlEncodedDataString, { headers, responseType: 'text' }).subscribe(
         response => {
-          document.documentElement.innerHTML = response;
+          this.responseHtml = response;
+          console.log("kcContext after set innerhtml", window.kcContext);
+          this.executeScriptsFromResponse(response);  
+          console.log("kcContext after script extraction", window.kcContext);
+          window.location.reload();
+          console.log("kcContext after redirect", window.kcContext);
         },
         error => {
           console.error('Error loading HTML:', error);
