@@ -5,7 +5,6 @@ import { Router, RouterOutlet } from '@angular/router';
 import { LuxActionModule, LuxCommonModule, LuxLayoutModule } from '@ihk-gfi/lux-components';
 import { CommonModule } from '@angular/common';
 import { KcClassPipe } from "../../pipes/classname.pipe";
-
 import { SanitizeHtmlPipe } from "../../pipes/sanitize-html.pipe";
 
 @Component({
@@ -27,7 +26,7 @@ export class TemplateComponent implements OnInit {
     if(this.kcContext) {
       let pageId = this.kcContext.pageId;
       this.router.navigate([this.trimPageIdSuffix(pageId)], {skipLocationChange: true});
-      console.log("kcCOntext", this.kcContext.realm.displayNameHtml);
+      console.log("kcCOntext", window.kcContext);
     }
   }
 

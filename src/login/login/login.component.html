@@ -1,21 +1,14 @@
-<form id="kc-form-login" (ngSubmit)="login()" [formGroup]="myGroup" style="margin: 4%;" *ngIf="!responseHtml">
-  <lux-input-ac autofocus luxType="text" luxLabel="E-Mail" luxAutocomplete="off" luxName="username" luxControlBinding="username"></lux-input-ac>
-  <lux-input-ac luxLabel="Passwort" luxAutocomplete="off" luxType="password" luxName="password" luxTagId="password" luxControlBinding="password">
-  </lux-input-ac>
-
-  <div class="lux-flex lux-flex-col lux-items-center lux-justify-center">
-    <lux-input-ac hidden luxTagId="id-hidden-input" luxName="credentialId" luxControlBinding="credentialId" luxControlBinding="credentialId"></lux-input-ac>
+<form [class]="('kcCardClass' | kcClass | async)" [formGroup]="myGroup" (ngSubmit)="login()">
+  <div [class]="('kcCardContentClass' | kcClass | async)" style="width: 100%;">
+    <h2>Bitte melden Sie sich an.</h2>
+    <lux-input-ac autofocus name="username" luxType="text" luxLabel="E-Mail" luxAutocomplete="off" luxName="username" luxControlBinding="username"></lux-input-ac>
+    <lux-input-ac luxLabel="Passwort" [class]="('kcHiddenClass' | kcClass | async)" luxAutocomplete="off" luxType="password" luxName="password" luxTagId="password" luxControlBinding="password"></lux-input-ac>
+    <lux-input-ac [class]="('kcHiddenClass' | kcClass | async)" luxTagId="id-hidden-input" luxName="credentialId" luxControlBinding="credentialId"></lux-input-ac>
+  </div>
+  <div [class]="('kcCardActionClass' | kcClass | async)">
+    <lux-button [luxFlat]="true" luxLabel="Registrieren"></lux-button>
     <lux-button luxName="login" luxType="submit" luxColor="accent" [luxFlat]="true" luxLabel="Weiter"
-      [luxDisabled]="kcContex.isLoginButtonDisabled">
-    </lux-button>
-
-    <p class="account-question">Sie haben noch kein Konto?</p>
-    <p class="registration-instruction">
-      <a [href]="kcContex.url.registrationUrl" luxLabel="Registrieren">
-        Registrieren
-      </a>
-      Sie sich und setzen Sie sich mit Ihrer IHK in Verbindung.
-    </p>
+    [luxDisabled]="kcContext.isLoginButtonDisabled">
+  </lux-button>
   </div>
 </form>
-<div *ngIf="responseHtml" [innerHtml]="responseHtml | sanitizeHtml"></div>

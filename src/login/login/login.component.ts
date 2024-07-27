@@ -17,6 +17,7 @@ import {
   LuxSnackbarService 
 } from '@ihk-gfi/lux-components';
 import { LuxButtonComponent } from "@ihk-gfi/lux-components";
+import { KcClassPipe } from "../../pipes/classname.pipe";
 
 @Component({
   selector: 'kc-login',
@@ -37,8 +38,9 @@ import { LuxButtonComponent } from "@ihk-gfi/lux-components";
     LuxPipesModule,
     LuxPopupsModule,
     LuxErrorModule,
-    LuxMarkdownModule
-  ]
+    LuxMarkdownModule,
+    KcClassPipe
+]
 })
 export class LoginComponent implements OnInit {
   myGroup!: FormGroup;
@@ -48,7 +50,7 @@ export class LoginComponent implements OnInit {
   public luxButtons?: QueryList<LuxButtonComponent>;
   responseHtml?: any;
 
-  constructor(private http: HttpClient, private router: Router, private sanitizer: DomSanitizer, private renderer: Renderer2) {
+  constructor(private http: HttpClient) {
     this.kcContex = window.kcContext;
   }  
 
@@ -59,18 +61,9 @@ export class LoginComponent implements OnInit {
       credentialId: new FormControl(),
       rememberMe: new FormControl(false),
     });
-
-    setTimeout(() => {
-      this.luxButtons?.forEach(button => {
-        const buttonLabel = button.elementRef.nativeElement.querySelector('.lux-button-label');
-        const parentDiv = button.elementRef.nativeElement.parentElement;
-        buttonLabel.style.width = `${parentDiv.offsetWidth - 32}px`;
-        buttonLabel.style.display = 'flex';
-        buttonLabel.style.justifyContent = 'center';
-      });
-    });
   }
 
+  
   login(): void {
     if (this.kcContex?.url?.loginAction) {
       const loginUrl = this.kcContex.url.loginAction;
@@ -117,5 +110,15 @@ export class LoginComponent implements OnInit {
 
       document.body.appendChild(script); // Append script to execute
     }
+  }
+
+  private loadNewHtml(html: string): void {
+    // Create a new document from the HTML response
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+
+    // Replace the current document with the new one
+    document.open();
+    document.write(doc.documentElement.outerHTML);
+    document.close();
   }
 }

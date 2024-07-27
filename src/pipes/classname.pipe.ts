@@ -1,27 +1,42 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { getKcClsx } from 'keycloakify/login/lib/kcClsx';
+import { BehaviorSubject, filter, Observable, switchMap } from 'rxjs';
+import { ExtraClassesService } from 'src/service/extra-classes.service';
 
 @Pipe({
   name: 'kcClass',
   standalone: true,
 })
 export class KcClassPipe implements PipeTransform {
-  kcClsx: (...args: any[]) => string;
+  private kcClsx!: (...args: any[]) => string;
+  private classesSubject = new BehaviorSubject<any>(null);
 
-  constructor() {
-    const params = {
-      doUseDefaultCss: false,
-      classes: {
-        "kcLoginClass": "lux-container-additional lux-grid lux-grid-cols-2 lux-items-center lux-justify-center",
-        "kcHeaderClass": "kc-header lux-grid lux-grid-cols-12 lux-auto-cols-max lux-header-additional",
-        "kcHeaderImageClass": "lux-col-span-2 lux-flex lux-items-center",
-        "kcHeaderWrapperClass": "lux-col-span-8 lux-flex lux-items-center lux-justify-center lux-h1"
-       },
-    };
-    this.kcClsx = getKcClsx(params).kcClsx;
+  constructor(private extraClassesService: ExtraClassesService) {
+    this.loadClasses();
   }
 
-  transform(value: string): string {
-    return this.kcClsx(value);
+  private loadClasses(): void {
+    this.extraClassesService.getClasses().subscribe(classes => {
+      const params = {
+        doUseDefaultCss: false,
+        classes: {
+          ...classes
+        },
+      };
+      this.kcClsx = getKcClsx(params).kcClsx;
+      this.classesSubject.next(classes);
+    });
+  }
+
+  transform(value: any): Observable<string> {
+    return this.classesSubject.pipe(
+      filter(classes => classes !== null), // Wait until classes are loaded
+      switchMap(classes => {
+        return new BehaviorSubject<string>(this.kcClsx(value)).asObservable();
+      })
+    );
+  
+    
+  
   }
 }

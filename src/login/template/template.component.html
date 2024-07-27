@@ -1,22 +1,27 @@
-<div [class]="('kcLoginClass' | kcClass)">
-    <!-- header -->
-    <div [class]="('kcHeaderClass' | kcClass)">
-      <div [class]="('kcHeaderWrapperClass' | kcClass)" [innerHTML]="kcContext.realm.displayNameHtml! | sanitizeHtml">
-      </div>
-      <div [class]="('kcHeaderImageClass' | kcClass)">
-        <img src="{{publicPath}}/static/media/ihk.png" class="icon" alt="IHK Logo">
-      </div>
-    </div>
-    <!-- content -->
-    <lux-card class="content-card" luxTitle="LUX BS 2.0 - Self Service Portal">
-      <lux-card-content id="kc-content">
-        <router-outlet></router-outlet>
-      </lux-card-content>
 
-      <!-- footer -->
-      <div class="footer-links">
-        <lux-link-plain luxLabel="Impressum" luxHref="https://www.ihk-gfi.de/impressum-5343024"></lux-link-plain> |
-        <lux-link-plain luxLabel="Datenschutzerklärung" luxHref="https://www.ihk-gfi.de/datenschutz-lux-bs-5518234"></lux-link-plain>
+<div [class]="('kcMainClass' | kcClass | async)">
+    <div [class]="('kcLoginClass' | kcClass | async)">
+      <!-- header -->
+      <div [class]="('kcHeaderClass' | kcClass |async)">
+        <div [class]="('kcHeaderImageClass' | kcClass | async)">
+          <img src="{{publicPath}}/static/media/ihk.png" class="icon" alt="IHK Logo">
+        </div>
+
+        <div>
+          <div [class]="('kcHeaderWrapperClass' | kcClass | async)">
+            <div [innerHTML]="kcContext.realm.displayNameHtml! | sanitizeHtml"></div>
+          </div>
+
+          <div [class]="('kcLinksClass' | kcClass | async)" style="margin-top: 2rem;">
+            <lux-link-plain luxLabel="Impressum" luxHref="https://www.ihk-gfi.de/impressum-5343024"></lux-link-plain>  |  
+            <lux-link-plain luxLabel="Datenschutz"
+              luxHref="https://www.ihk-gfi.de/datenschutz-lux-bs-5518234"></lux-link-plain>
+          </div>
+        </div>
       </div>
-    </lux-card>
-</div>
+
+      <!-- content -->
+      <div [class]="('kcContentClass' | kcClass | async)">
+        <router-outlet></router-outlet>
+      </div>
+  </div>
