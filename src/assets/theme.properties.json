@@ -1,0 +1,18 @@
+        {
+        
+        "kcHiddenClass": "lux-display-none",
+
+    
+        "kcMainClass": "lux-main-additional lux-flex-col lux-flex lux-items-center lux-justify-center",
+        "kcLoginClass": "lux-container-additional lux-flex lux-flex-row",
+        "kcLinksClass": "lux-flex lux-flex-row lux-justify-start",
+        "kcHeaderClass": "lux-header-additional lux-flex lux-flex-col lux-justify-between lux-p-5",
+        "kcHeaderImageClass": "lux-flex lux-justify-center",
+        "kcHeaderWrapperClass": "lux-flex lux-items-center lux-justify-center",
+        "kcContentClass": "lux-content-additional lux-flex lux-flex-row lux-p-5",
+
+        
+        "kcCardClass": "lux-form-additional lux-flex lux-flex-col lux-justify-between",
+        "kcCardContentClass": "lux-flex lux-flex-col",
+        "kcCardActionClass": "lux-flex lux-flex-row lux-justify-end"
+        }

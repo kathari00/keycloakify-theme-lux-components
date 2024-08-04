@@ -13,6 +13,7 @@ import { LOGIN_ROUTES } from './login.routes';
 import { LuxComponentsConfigModule, LuxComponentsConfigParameters } from '@ihk-gfi/lux-components';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { ExtraClassesService } from 'src/service/extra-classes.service';
 
 
 const myConfiguration: LuxComponentsConfigParameters = {
@@ -29,6 +30,7 @@ export const LoginConfig: ApplicationConfig = {
     importProvidersFrom(
       BrowserModule,
       HttpClient,
+      ExtraClassesService,
       LuxComponentsConfigModule.forRoot(myConfiguration) // LuxComponentsConfig hinzugefügt
     ),
     

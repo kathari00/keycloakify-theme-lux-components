@@ -1,6 +1,6 @@
 .lux-main-additional {
-  height: 100%;
   background-color: var(--lux-theme-light-secondary-text);
+  height: 100%;
 }
 
 .lux-container-additional {
@@ -11,9 +11,13 @@
 
 .lux-content-additional {
   background-color: white;
-  min-width: 20em;
+  min-width: 20rem;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+lux-main-wrapper-additional {
+  width: 70%;
 }
 
 .lux-header-additional {
@@ -22,13 +26,9 @@
   border-bottom-left-radius: 10px;
 }
 
-.lux-h1 {
-  color: var(--lux-theme-primary-500);
-
-}
 
 .icon {
   margin-left: 5px;
   width: auto;
-  height: "50px";
+  height: auto;
 }

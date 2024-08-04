@@ -44,14 +44,14 @@ import { KcClassPipe } from "../../pipes/classname.pipe";
 })
 export class LoginComponent implements OnInit {
   myGroup!: FormGroup;
-  kcContex?: any;
-  
+  kcContext!: any;
+  classes!: any;
   @ViewChildren(LuxButtonComponent)
   public luxButtons?: QueryList<LuxButtonComponent>;
   responseHtml?: any;
 
-  constructor(private http: HttpClient) {
-    this.kcContex = window.kcContext;
+  constructor(private http: HttpClient, private router: Router) {
+    this.kcContext = window.kcContext;
   }  
 
   ngOnInit() {
@@ -61,30 +61,28 @@ export class LoginComponent implements OnInit {
       credentialId: new FormControl(),
       rememberMe: new FormControl(false),
     });
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      this.classes = navigation.extras.state['data'];
+    }
+
   }
 
   
-  login(): void {
-    if (this.kcContex?.url?.loginAction) {
-      const loginUrl = this.kcContex.url.loginAction;
-      const loginData = this.myGroup?.value;
-      const urlEncodedDataString = this.createUrlEncodedData(loginData);
-
-      let headers = new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8',
-      });
-
-      this.http.post(loginUrl, urlEncodedDataString, { headers, responseType: 'text' }).subscribe(
-        response => {
-          this.responseHtml = response;
-          console.log("kcContext after set innerhtml", window.kcContext);
-        },
-        error => {
-          console.error('Error loading HTML:', error);
-        }
-      );
-    }
+  login() {
+    const loginUrl = this.kcContext.url.loginUrl;
+    const loginData = this.myGroup?.value;
+    const urlEncodedDataString = this.createUrlEncodedData(loginData);
+    console.log("blaa", this.myGroup.value)
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'text/html',
+    });
+    this.http.post(loginUrl, urlEncodedDataString, { headers, responseType: 'text' }).subscribe(
+      response => {
+        //this is the right response but what to do with it?
+      }
+    );
   }
 
   createUrlEncodedData(data: any): string {

@@ -6,29 +6,48 @@ import { LuxActionModule, LuxCommonModule, LuxLayoutModule } from '@ihk-gfi/lux-
 import { CommonModule } from '@angular/common';
 import { KcClassPipe } from "../../pipes/classname.pipe";
 import { SanitizeHtmlPipe } from "../../pipes/sanitize-html.pipe";
+import { ExtraClassesService } from 'src/service/extra-classes.service';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
     selector: 'kc-template',
     standalone: true,
     templateUrl: './template.component.html',
     styleUrls: ['./template.component.scss'],
-    imports: [CommonModule, LuxCommonModule, LuxLayoutModule, LuxActionModule, RouterOutlet, KcClassPipe, SanitizeHtmlPipe]
+    imports: [CommonModule, LuxCommonModule, LuxLayoutModule, LuxActionModule, RouterOutlet, KcClassPipe, SanitizeHtmlPipe, HttpClientModule],
+    providers: [ExtraClassesService]
 })
 export class TemplateComponent implements OnInit {
 
   kcContext!: KcContext;
+  classes$: Observable<any>;
+
  
-  constructor(private router: Router) {
+  constructor(private router: Router, private extraClassesService: ExtraClassesService) {
     this.kcContext = window.kcContext!;
+    
+    this.classes$ = this.extraClassesService.getClasses();
+
+    
   }
 
   ngOnInit() {
-    if(this.kcContext) {
+    if (this.kcContext) {
       let pageId = this.kcContext.pageId;
-      this.router.navigate([this.trimPageIdSuffix(pageId)], {skipLocationChange: true});
-      console.log("kcCOntext", window.kcContext);
+
+      // Subscribe to the classes$ observable
+      this.classes$.subscribe(classes => {
+        // Navigate after receiving the classes data
+        this.router.navigate([this.trimPageIdSuffix(pageId)], {
+          skipLocationChange: true,
+          state: { data: classes }
+        });
+        console.log("kcContext", window.kcContext);
+      });
     }
   }
+
 
   trimPageIdSuffix(pageId: string): string {
     if (pageId.length > 4) {
