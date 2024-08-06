@@ -1,14 +1,13 @@
-<form [class]="('kcCardClass' | kcClass | async)" [formGroup]="myGroup" (ngSubmit)="login()">
+<form [class]="('kcCardClass' | kcClass | async)" [formGroup]="loginForm" (ngSubmit)="login()">
   <div [class]="('kcCardContentClass' | kcClass | async)" style="width: 100%;">
     <h2>Bitte melden Sie sich an.</h2>
     <lux-input-ac autofocus name="username" luxType="text" luxLabel="E-Mail" luxAutocomplete="off" luxName="username" luxControlBinding="username"></lux-input-ac>
-    <lux-input-ac luxLabel="Passwort" [class]="('kcHiddenClass' | kcClass | async)" luxAutocomplete="off" luxType="password" luxName="password" luxTagId="password" luxControlBinding="password"></lux-input-ac>
+    <lux-input-ac luxLabel="Passwort" luxAutocomplete="off" luxType="password" luxName="password" luxTagId="password" luxControlBinding="password"></lux-input-ac>
     <lux-input-ac [class]="('kcHiddenClass' | kcClass | async)" luxTagId="id-hidden-input" luxName="credentialId" luxControlBinding="credentialId"></lux-input-ac>
   </div>
   <div [class]="('kcCardActionClass' | kcClass | async)">
     <lux-button [luxFlat]="true" luxLabel="Registrieren"></lux-button>
-    <lux-button luxName="login" luxType="submit" luxColor="accent" [luxFlat]="true" luxLabel="Weiter"
-    [luxDisabled]="kcContext.isLoginButtonDisabled">
+    <lux-button luxName="login" luxType="submit" luxColor="accent"  [luxFlat]="true" luxLabel="Weiter">
   </lux-button>
   </div>
 </form>

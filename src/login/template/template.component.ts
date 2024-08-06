@@ -8,14 +8,13 @@ import { KcClassPipe } from "../../pipes/classname.pipe";
 import { SanitizeHtmlPipe } from "../../pipes/sanitize-html.pipe";
 import { ExtraClassesService } from 'src/service/extra-classes.service';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
     selector: 'kc-template',
     standalone: true,
     templateUrl: './template.component.html',
     styleUrls: ['./template.component.scss'],
-    imports: [CommonModule, LuxCommonModule, LuxLayoutModule, LuxActionModule, RouterOutlet, KcClassPipe, SanitizeHtmlPipe, HttpClientModule],
+    imports: [CommonModule, LuxCommonModule, LuxLayoutModule, LuxActionModule, RouterOutlet, KcClassPipe, SanitizeHtmlPipe],
     providers: [ExtraClassesService]
 })
 export class TemplateComponent implements OnInit {
@@ -28,14 +27,11 @@ export class TemplateComponent implements OnInit {
     this.kcContext = window.kcContext!;
     
     this.classes$ = this.extraClassesService.getClasses();
-
-    
   }
 
   ngOnInit() {
     if (this.kcContext) {
       let pageId = this.kcContext.pageId;
-
       // Subscribe to the classes$ observable
       this.classes$.subscribe(classes => {
         // Navigate after receiving the classes data
