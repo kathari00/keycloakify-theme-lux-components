@@ -8,6 +8,11 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "kc",
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": true
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
