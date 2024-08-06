@@ -1,8 +1,8 @@
+
 <div [class]="('kcMainClass' | kcClass | async)">
-  <div [class]="('kcContentWrapperClass' | kcClass | async)">
     <div [class]="('kcLoginClass' | kcClass | async)">
       <!-- header -->
-      <div [class]="('kcHeaderClass' | kcClass | async)">
+      <div [class]="('kcHeaderClass' | kcClass |async)">
         <div [class]="('kcHeaderImageClass' | kcClass | async)">
           <img src="{{publicPath}}/static/media/ihk.png" class="icon" alt="IHK Logo">
         </div>
@@ -11,6 +11,12 @@
           <div [class]="('kcHeaderWrapperClass' | kcClass | async)">
             <div [innerHTML]="kcContext.realm.displayNameHtml! | sanitizeHtml"></div>
           </div>
+
+          <div [class]="('kcLinksClass' | kcClass | async)" style="margin-top: 2rem;">
+            <lux-link-plain luxLabel="Impressum" luxHref="https://www.ihk-gfi.de/impressum-5343024"></lux-link-plain>  |  
+            <lux-link-plain luxLabel="Datenschutz"
+              luxHref="https://www.ihk-gfi.de/datenschutz-lux-bs-5518234"></lux-link-plain>
+          </div>
         </div>
       </div>
 
@@ -18,18 +24,4 @@
       <div [class]="('kcContentClass' | kcClass | async)">
         <router-outlet></router-outlet>
       </div>
-    </div>
-
-    <div [class]="('kcLinksClass' | kcClass | async)">
-      <div class="lux-flex lux-justify-between" style="padding-left: 32px; padding-right:32px; padding-top:12px;">
-        <div>
-          <lux-link-plain luxLabel="Impressum" luxHref="https://www.ihk-gfi.de/impressum-5343024"></lux-link-plain> |
-          <lux-link-plain luxLabel="Datenschutz"
-            luxHref="https://www.ihk-gfi.de/datenschutz-lux-bs-5518234"></lux-link-plain> 
-          </div>
-        <lux-link-plain luxLabel="> Sprache"></lux-link-plain>
-        </div>
-      
-      </div>
-    </div>
-</div>
+  </div>

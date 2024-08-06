@@ -2,10 +2,10 @@
         
         "kcHiddenClass": "lux-display-none",
 
-        "kcContentWrapperClass": "lux-content-wrapper-additional lux-flex lux-flex-row",
+    
         "kcMainClass": "lux-main-additional lux-flex-col lux-flex lux-items-center lux-justify-center",
         "kcLoginClass": "lux-container-additional lux-flex lux-flex-row",
-        "kcLinksClass": "lux-links-additional lux-flex lux-flex-row lux-justify-start",
+        "kcLinksClass": "lux-flex lux-flex-row lux-justify-start",
         "kcHeaderClass": "lux-header-additional lux-flex lux-flex-col lux-justify-between lux-p-5",
         "kcHeaderImageClass": "lux-flex lux-justify-center",
         "kcHeaderWrapperClass": "lux-flex lux-items-center lux-justify-center",
@@ -15,6 +15,4 @@
         "kcCardClass": "lux-form-additional lux-flex lux-flex-col lux-justify-between",
         "kcCardContentClass": "lux-flex lux-flex-col",
         "kcCardActionClass": "lux-flex lux-flex-row lux-justify-end"
-
-
         }

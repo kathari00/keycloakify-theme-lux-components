@@ -16,8 +16,8 @@
   border-bottom-right-radius: 10px;
 }
 
-.lux-content-wrapper-additional {
-  display: inline-block;
+lux-main-wrapper-additional {
+  width: 70%;
 }
 
 .lux-header-additional {
@@ -25,15 +25,6 @@
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-
-.lux-links-additional {
-  div {
-    flex-grow: 1;
-    width: 0;
-  
-  }
-}
-
 
 
 .icon {
